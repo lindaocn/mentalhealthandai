@@ -20,7 +20,8 @@
 
 <body>
 
-  <h2>Raisons pour lesquelles les adolescents utilisent des compagnons IA (soutien émotionnel)</h2>
+  <h2>L'aisance des adolescents a parler de leur sante mentale aux proches</h2>
+  <h4>Pew Research Org, 2024</h2>
   <div id="chartContainer">
     <canvas id="myPieChart"></canvas>
   </div>
@@ -30,14 +31,17 @@
 
     const data = {
       labels: [
-        "Donne des conseils (25.7%)",
-        "Tojours disponible (24.3%)",
-        "Ne me juge pas (20.0%)",
-        "Je peux lui dire des choses que je ne dirais pas aux autres (17.1%)",
-        "Plus facile que parler a des vraies personnes (12.9%)"
+        "A l'aise (34%)",
+        "Peu a l'aise (36%)",
+        "Pas a l'aise (30%)"
       ],
       datasets: [{
-        data: [25.7, 24.3, 20.0, 17.1, 12.9],
+        data: [34, 36, 30],
+        backgroundColor: [
+        "#7BC67E",   // green
+        "#F6C04D",   // yellow
+        "#E66B6B",   // red
+      ],
         borderWidth: 1,
         hoverOffset: 10 // makes segments pop on hover
       }]
