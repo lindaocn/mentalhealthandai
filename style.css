@@ -86,30 +86,38 @@ h2 {
     margin-bottom: 5px;
 }
 
+/* Large charts */
 .chart-large {
-    width: 500px;
-    margin: auto;
+  width: 500px;
+  height: 500px;
+  margin: auto;
 }
 
 .chart-large canvas {
-    width: 100% !important;
-    height: auto !important;
+  width: 100% !important;
+  height: 100% !important; /* ensure square */
 }
 
 /* Small charts row */
 .chart-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+  overflow: visible;
 }
 
+/* Each mini chart must have a fixed square box */
 .chart-small {
-    width: 180px;
-    text-align: center;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  overflow: visible;
+  text-align: center;
 }
 
 .chart-small canvas {
-    width: 180px;
-    height: 180px;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: visible !important;
 }
