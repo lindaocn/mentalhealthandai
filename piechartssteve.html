@@ -1,0 +1,145 @@
+
+</body>
+</html>
+
+<html>
+<head>
+  <title>Interactive Pie Chart</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    #chartContainer {
+      width: 450px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Reasons Teens Use AI Companions (Emotional Support)</h2>
+<div id="chartContainer">
+  <canvas id="myPieChart"></canvas>
+</div>
+
+<script>
+  const ctx = document.getElementById('myPieChart').getContext('2d');
+
+  const data = {
+    labels: [
+      "Gives advice (25.7%)",
+      "Always available (24.3%)",
+      "Doesn't judge (20.0%)",
+      "Can say things I wouldn't tell others (17.1%)",
+      "Easier than real people (12.9%)"
+    ],
+    datasets: [{
+      data: [25.7, 24.3, 20.0, 17.1, 12.9],
+      borderWidth: 1,
+      hoverOffset: 10 // makes segments pop on hover
+    }]
+  };
+
+  const config = {
+    type: 'pie',
+    data: data,
+    options: {
+      responsive: true,
+      animation: {
+        animateRotate: true,
+        animateScale: true
+      },
+      plugins: {
+        tooltip: {
+          enabled: true
+        },
+        legend: {
+          position: 'bottom',
+          labels: {
+            padding: 15
+          }
+        }
+      }
+    }
+  };
+
+  new Chart(ctx, config);
+</script>
+
+</body>
+</html>
+
+
+<html>
+<head>
+  <title>Interactive Pie Chart</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    #chartContainer {
+      width: 450px;
+      margin: auto;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+<h2>Reasons Teens Use AI Companions (Emotional Support)</h2>
+<div id="chartContainer">
+  <canvas id="myPieChart"></canvas>
+</div>
+
+<script>
+  const ctx = document.getElementById('myPieChart').getContext('2d');
+
+  const data = {
+    labels: [
+      "Gives advice (25.7%)",
+      "Always available (24.3%)",
+      "Doesn't judge (20.0%)",
+      "Can say things I wouldn't tell others (17.1%)",
+      "Easier than real people (12.9%)"
+    ],
+    datasets: [{
+      data: [25.7, 24.3, 20.0, 17.1, 12.9],
+      borderWidth: 1,
+      hoverOffset: 10 // makes segments pop on hover
+    }]
+  };
+
+  const config = {
+    type: 'pie',
+    data: data,
+    options: {
+      responsive: true,
+      animation: {
+        animateRotate: true,
+        animateScale: true
+      },
+      plugins: {
+        tooltip: {
+          enabled: true
+        },
+        legend: {
+          position: 'bottom',
+          labels: {
+            padding: 15
+          }
+        }
+      }
+    }
+  };
+
+  new Chart(ctx, config);
+</script>
+
+</body>
+</html>
