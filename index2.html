@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Charts Dashboard</title>
+
+  <!-- Chart.js + Datalabels -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Chart 1 -->
+  <h2>Raisons pour lesquelles les adolescents utilisent des compagnons IA (soutien émotionnel)</h2>
+  <h4>Common Sense Media, 2025</h4>
+  <div class="chart-large">
+    <canvas id="reasonChart"></canvas>
+  </div>
+
+  <!-- Chart 2 -->
+  <h2>L'aisance des adolescents à parler de leur santé mentale aux proches</h2>
+  <h4>Pew Research Org, 2024</h4>
+  <div class="chart-large">
+    <canvas id="overallComfortChart"></canvas>
+  </div>
+
+  <!-- Five Mini Charts -->
+  <div class="chart-row">
+    <div class="chart-small"><canvas id="friendChart"></canvas><p>Amis</p></div>
+    <div class="chart-small"><canvas id="parentChart"></canvas><p>Parents</p></div>
+    <div class="chart-small"><canvas id="therapistChart"></canvas><p>Thérapeutes</p></div>
+    <div class="chart-small"><canvas id="teacherChart"></canvas><p>Enseignants</p></div>
+    <div class="chart-small"><canvas id="familyChart"></canvas><p>Autres proches</p></div>
+  </div>
+
+  <!-- External JS -->
+  <script src="charts.js"></script>
+
+</body>
+</html>
