@@ -1,12 +1,8 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
   <title>Interactive Pie Chart</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
   <style>
@@ -16,8 +12,13 @@
     }
 
     #chartContainer {
-      width: 450px;
+      width: 500px; /* bigger container so pie fills nicely */
       margin: auto;
+    }
+
+    #chartContainer canvas {
+      width: 100% !important;
+      height: auto !important;
     }
   </style>
 </head>
@@ -25,22 +26,23 @@
 <body>
 
   <h2>L'aisance des adolescents a parler de leur sante mentale aux proches</h2>
-  <h4>Pew Research Org, 2024</h2>
+  <h4>Pew Research Org, 2024</h4>
   <div id="chartContainer">
     <canvas id="myPieChart"></canvas>
   </div>
 
-<script>
+  <script>
     const ctx = document.getElementById('myPieChart').getContext('2d');
 
     const data = {
       labels: [
         "A l'aise",
         "Peu a l'aise",
-        "Pas du tout a l'aise"],
+        "Pas du tout a l'aise"
+      ],
       datasets: [{
         data: [34, 36, 30],
-        backgroundColor: ["#7BC67E", "#F6C04D", "#E66B6B", "#6FA8DC", "#C48BEA"],
+        backgroundColor: ["#7BC67E", "#F6C04D", "#E66B6B"],
         hoverOffset: 12
       }]
     };
@@ -52,9 +54,17 @@
       options: {
         responsive: true,
         animation: {
-          animateRotate: true, // ✅ spin in
-          animateScale: true,  // ✅ scale in
+          animateRotate: true,
+          animateScale: true,
           duration: 1400
+        },
+        layout: {
+          padding: {
+            top: 30,
+            bottom: 30,
+            left: 20,
+            right: 20
+          }
         },
         plugins: {
           legend: {
@@ -63,7 +73,9 @@
           },
           tooltip: {
             displayColors: false,
+            position: 'nearest',
             callbacks: {
+              title: function () { return null; }, // remove duplicate title
               label: function (context) {
                 return `${context.label}: ${context.parsed}%`;
               }
@@ -77,9 +89,7 @@
         }
       }
     });
-    
   </script>
-
 
 </body>
 

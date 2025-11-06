@@ -3,8 +3,6 @@
 
 <head>
   <title>Interactive Pie Chart</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 
@@ -15,8 +13,14 @@
     }
 
     #chartContainer {
-      width: 450px;
+      width: 500px;
+      /* increase container size */
       margin: auto;
+    }
+
+    #chartContainer canvas {
+      width: 100% !important;
+      height: auto !important;
     }
   </style>
 </head>
@@ -54,9 +58,17 @@
       options: {
         responsive: true,
         animation: {
-          animateRotate: true, // ✅ spin in
-          animateScale: true,  // ✅ scale in
+          animateRotate: true,
+          animateScale: true,
           duration: 1400
+        },
+        layout: {
+          padding: {
+            top: 30,
+            bottom: 30,
+            left: 20,
+            right: 20
+          }
         },
         plugins: {
           legend: {
@@ -65,7 +77,9 @@
           },
           tooltip: {
             displayColors: false,
+            position: 'nearest',
             callbacks: {
+              title: function () { return null; },
               label: function (context) {
                 return `${context.label}: ${context.parsed}%`;
               }
@@ -79,8 +93,8 @@
         }
       }
     });
-    
   </script>
 
 </body>
+
 </html>
