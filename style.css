@@ -1,72 +1,115 @@
-.container{
+.container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 20rem;
     margin: 5rem;
 }
+
 .frame-one,
 .frame-two {
-position: relative;
-padding: 5rem;
-border-radius: 15px;
-justify-content: space-around;
-align-items: center;
-border: none;
+    position: relative;
+    padding: 5rem;
+    border-radius: 15px;
+    justify-content: space-around;
+    align-items: center;
+    border: none;
 
---p: 0; /* Progress von 0 bis 1 */
+    --p: 0;
+    /* Progress von 0 bis 1 */
 
-background-image:
-    linear-gradient(#0C41FB, #0C41FB),
-    linear-gradient(#0C41FB, #0C41FB),
-    linear-gradient(#0C41FB, #0C41FB),
-    linear-gradient(#0C41FB, #0C41FB);
-background-repeat: no-repeat;
-background-position: top left, top right, bottom right, bottom left;
+    background-image:
+        linear-gradient(#0C41FB, #0C41FB),
+        linear-gradient(#0C41FB, #0C41FB),
+        linear-gradient(#0C41FB, #0C41FB),
+        linear-gradient(#0C41FB, #0C41FB);
+    background-repeat: no-repeat;
+    background-position: top left, top right, bottom right, bottom left;
 
-/* Dynamische Größen per Progress */
-background-size:
-    calc(var(--p) * 100%) 5px,
-    5px calc((var(--p) - 0.25) * 100% * 4),
-    calc((var(--p) - 0.5) * 100% * 2) 5px,
-    5px calc((var(--p) - 0.75) * 100% * 4);
+    /* Dynamische Größen per Progress */
+    background-size:
+        calc(var(--p) * 100%) 5px,
+        5px calc((var(--p) - 0.25) * 100% * 4),
+        calc((var(--p) - 0.5) * 100% * 2) 5px,
+        5px calc((var(--p) - 0.75) * 100% * 4);
 
-transition: background-size 0.01s linear;
+    transition: background-size 0.01s linear;
 }
 
 
 /* Topic 2 */
 .img-chatbot-phone {
-    width:100%;
-    max-width:100%;
-    height:auto;
-    object-fit:contain;
-    display:block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
 }
-.introduction-topic-2{
+
+.introduction-topic-2 {
     display: flex;
     align-items: center;
     margin-bottom: 4rem;
     text-align: left;
 }
-.introduction-text-2{
+
+.introduction-text-2 {
     max-width: 60rem;
     margin-left: 5rem;
-    h3{
+
+    h3 {
         text-align: left;
     }
-    p{
+
+    p {
         text-align: left;
     }
 }
 
 
-.sources{
+.sources {
     display: flex;
     flex-direction: row;
     gap: 10rem;
 
-    p{
+    p {
         text-align: left;
     }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+}
+
+h2 {
+    margin-bottom: 5px;
+}
+
+.chart-large {
+    width: 500px;
+    margin: auto;
+}
+
+.chart-large canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* Small charts row */
+.chart-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.chart-small {
+    width: 180px;
+    text-align: center;
+}
+
+.chart-small canvas {
+    width: 180px;
+    height: 180px;
 }
