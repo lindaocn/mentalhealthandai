@@ -67,7 +67,7 @@
       new Chart(document.getElementById(canvasId), {
         type: 'pie',
         data: {
-          labels: ["Comfortable", "Somewhat comfortable", "Not comfortable"],
+          labels: ["A l'aise", "Peu a l'aise", "Pas a l'aise"],
           datasets: [{
             data: data,
             backgroundColor: ["#7BC67E", "#F6C04D", "#E66B6B"],
@@ -76,7 +76,7 @@
         },
         plugins: [ChartDataLabels],
         options: {
-          responsive: false, // prevent automatic scaling
+          responsive: false,
           animation: {
             animateScale: true,
             animateRotate: true,
@@ -85,7 +85,7 @@
           layout: {
             padding: {
               top: 10,
-              bottom: 20, // extra space for tooltip
+              bottom: 20,
               left: 10,
               right: 10
             }
@@ -96,7 +96,7 @@
               position: 'nearest',
               displayColors: false,
               callbacks: {
-                title: function () { return null; }, // remove duplicate title
+                title: function () { return null; },
                 label: function (context) {
                   return `${context.label}: ${context.parsed}%`;
                 }
