@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
   <title>Interactive Pie Chart</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -31,45 +34,53 @@
 
     const data = {
       labels: [
-        "Donne des conseils (25.7%)",
-        "Tojours disponible (24.3%)",
-        "Ne me juge pas (20.0%)",
-        "Je peux lui dire des choses que je ne dirais pas aux autres (17.1%)",
-        "Plus facile que parler a des vraies personnes (12.9%)"
+        "Donne des conseils",
+        "Toujours disponible",
+        "Ne me juge pas",
+        "Je peux lui dire des choses que je ne dirais pas aux autres",
+        "Plus facile que parler à des vraies personnes"
       ],
       datasets: [{
         data: [25.7, 24.3, 20.0, 17.1, 12.9],
-        borderWidth: 1,
-        hoverOffset: 10 // makes segments pop on hover
+        backgroundColor: ["#7BC67E", "#F6C04D", "#E66B6B", "#6FA8DC", "#C48BEA"],
+        hoverOffset: 12
       }]
     };
 
-    const config = {
+    new Chart(ctx, {
       type: 'pie',
       data: data,
+      plugins: [ChartDataLabels],
       options: {
         responsive: true,
         animation: {
-          animateRotate: true,
-          animateScale: true
+          animateRotate: true, // ✅ spin in
+          animateScale: true,  // ✅ scale in
+          duration: 1400
         },
         plugins: {
-          tooltip: {
-            enabled: true
-          },
           legend: {
             position: 'bottom',
-            labels: {
-              padding: 15
+            labels: { padding: 15 }
+          },
+          tooltip: {
+            displayColors: false,
+            callbacks: {
+              label: function (context) {
+                return `${context.label}: ${context.parsed}%`;
+              }
             }
+          },
+          datalabels: {
+            color: "#ffffff",
+            font: { weight: "bold", size: 12 },
+            formatter: value => value + "%"
           }
         }
       }
-    };
-
-    new Chart(ctx, config);
+    });
+    
   </script>
 
 </body>
-
 </html>

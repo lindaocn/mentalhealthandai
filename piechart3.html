@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+
+    .chart-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .chart-container {
+      width: 180px;
+      text-align: center;
+    }
+
+    .chart-container canvas {
+      width: 180px;
+      height: 180px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>L'aisance des adolescents a parler de leur sante mentale aux proches</h2>
+  <h4>Pew Research Org, 2024</h4>
+
+  <div class="chart-row">
+    <div class="chart-container">
+      <canvas id="friendChart"></canvas>
+      <p>Amis</p>
+    </div>
+
+    <div class="chart-container">
+      <canvas id="parentChart"></canvas>
+      <p>Parents</p>
+    </div>
+
+    <div class="chart-container">
+      <canvas id="therapistChart"></canvas>
+      <p>Therapistes</p>
+    </div>
+
+    <div class="chart-container">
+      <canvas id="teacherChart"></canvas>
+      <p>Enseignants</p>
+    </div>
+
+    <div class="chart-container">
+      <canvas id="familyChart"></canvas>
+      <p>Autres proches</p>
+    </div>
+  </div>
+
+  <script>
+    function makeChart(canvasId, data) {
+      new Chart(document.getElementById(canvasId), {
+        type: 'pie',
+        data: {
+          labels: ["Comfortable", "Somewhat comfortable", "Not comfortable"],
+          datasets: [{
+            data: data,
+            backgroundColor: ["#7BC67E", "#F6C04D", "#E66B6B"],
+            hoverOffset: 12
+          }]
+        },
+        plugins: [ChartDataLabels],
+        options: {
+          responsive: false, // prevent automatic scaling
+          animation: {
+            animateScale: true,
+            animateRotate: true,
+            duration: 1400
+          },
+          layout: {
+            padding: {
+              top: 10,
+              bottom: 20, // extra space for tooltip
+              left: 10,
+              right: 10
+            }
+          },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              position: 'nearest',
+              displayColors: false,
+              callbacks: {
+                title: function () { return null; }, // remove duplicate title
+                label: function (context) {
+                  return `${context.label}: ${context.parsed}%`;
+                }
+              }
+            },
+            datalabels: {
+              color: "#ffffff",
+              font: {
+                weight: "bold",
+                size: 12
+              },
+              formatter: function (value) {
+                return value + "%";
+              }
+            }
+          }
+        }
+      });
+    }
+
+    makeChart("friendChart", [48, 37, 15]);
+    makeChart("parentChart", [52, 31, 16]);
+    makeChart("therapistChart", [30, 38, 31]);
+    makeChart("teacherChart", [12, 34, 54]);
+    makeChart("familyChart", [26, 41, 33]);
+  </script>
+
+</body>
+
+</html>
