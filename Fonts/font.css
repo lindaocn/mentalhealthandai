@@ -19,15 +19,15 @@ p{
 }
 
 @font-face {
-    font-family: 'Inter Medium';
-    src: url('Fonts/Inter-Medium.woff2') format('truetype');
+    font-family: 'Inter-Medium';
+    src: url('../Fonts/Inter-Medium.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Inter Bold';
-    src: url('Fonts/Inter-Bold.woff2') format('truetype');
+    font-family: 'Inter-Bold';
+    src: url('../Fonts/Inter-Bold.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
