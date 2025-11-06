@@ -15,6 +15,7 @@ h3{
 p{
     font-family: 'Inter-Medium';
     font-size: 25px;
+    text-align: center;
 }
 
 @font-face {
@@ -50,4 +51,8 @@ p{
 .header-text{
     color: #0C41FB;
     margin-top: 14rem;
+}
+
+img{
+    align-self: center;
 }
