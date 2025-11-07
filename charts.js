@@ -1,7 +1,3 @@
-// charts.js — initialize charts but animate them only when they scroll into view
-// Requires Chart.js and chartjs-plugin-datalabels already loaded on the page.
-
-// ---------- shared options ----------
 const sharedPlugins = {
   legend: { position: 'bottom', labels: { padding: 15 } },
   tooltip: {
@@ -25,7 +21,6 @@ const animatedOptions = {
   easing: 'easeOutCubic'
 };
 
-// Base options used when chart is animated (merged later)
 const baseAnimatedConfig = {
   maintainAspectRatio: false,
   responsive: true,
@@ -35,51 +30,48 @@ const baseAnimatedConfig = {
   plugins: sharedPlugins
 };
 
-// Base "paused" options used when chart is created but should not animate yet
+
 const basePausedConfig = {
   maintainAspectRatio: false,
   responsive: true,
   aspectRatio: 1,
   layout: { padding: 20 },
-  animation: { duration: 0 }, // no animation initially
+  animation: { duration: 0 }, 
   plugins: sharedPlugins
 };
 
-// Helper to safely get canvas by id
+
 function $(id) {
   return document.getElementById(id) || null;
 }
 
-// Build chart factory that creates a chart but doesn't animate it yet
 function createPausedChart(canvasEl, config) {
   if (!canvasEl) return null;
-  // merge paused animation into provided config
+  
   const cfg = Object.assign({}, config, { options: Object.assign({}, basePausedConfig, config.options || {}) });
   return new Chart(canvasEl, cfg);
 }
 
-// Play entrance animation for a chart once (reset -> set animated options -> update)
+
 function playEntranceAnimation(chart, extraOptions = {}) {
   if (!chart || chart._playedEntrance) return;
-  // mark so we don't replay
+
   chart._playedEntrance = true;
 
-  // Reset to initial state
+
   try { chart.reset(); } catch (e) { /* ignore if not supported */ }
 
-  // Replace options.animation with animated options
+
   chart.options.animation = Object.assign({}, animatedOptions, extraOptions);
 
-  // If legend was shrinking pie (long labels), ensure legend not reserving extra space if needed
+
   if (chart.options.plugins && chart.options.plugins.legend) {
     chart.options.plugins.legend.fullSize = chart.options.plugins.legend.fullSize ?? true;
   }
 
-  // Update to run the animation
-  chart.update();
+   chart.update();
 }
 
-// --- Define data/configs for each chart ---
 const reasonData = {
   labels: [
     "Donne des conseils",
@@ -106,7 +98,6 @@ const comfortData = {
 
 const smallColors = ["#7BC67E", "#F6C04D", "#E66B6B"];
 
-// paused configs
 const reasonConfig = {
   type: 'pie',
   plugins: [ChartDataLabels],
@@ -138,8 +129,8 @@ function smallChartConfig(values) {
   };
 }
 
-// --- Create paused charts (safe if canvas exists). They will render immediately WITH NO ANIMATION. ---
-const chartInstances = []; // keep refs for observer
+
+const chartInstances = []; 
 
 const reasonCanvas = $('reasonChart');
 if (reasonCanvas) {
@@ -153,7 +144,6 @@ if (comfortCanvas) {
   if (c) chartInstances.push({ el: comfortCanvas, chart: c });
 }
 
-// small charts ids and values
 const smallCharts = [
   { id: 'friendChart', data: [48, 37, 15] },
   { id: 'parentChart', data: [52, 31, 16] },
@@ -170,7 +160,7 @@ smallCharts.forEach(sc => {
   if (inst) chartInstances.push({ el: el, chart: inst });
 });
 
-// --- IntersectionObserver to animate charts as they scroll into view ---
+
 const observerOptions = {
   root: null,
   rootMargin: '0px',
@@ -197,14 +187,14 @@ const chartObserver = new IntersectionObserver((entries, obs) => {
   });
 }, observerOptions);
 
-// observe the DOM elements — observe wrappers where possible, otherwise canvas
+
 chartInstances.forEach(ci => {
   const wrap = ci.el.closest('.chart-large') || ci.el.closest('.chart-small') || ci.el;
   if (wrap) chartObserver.observe(wrap);
   else chartObserver.observe(ci.el);
 });
 
-// Safety: if user quickly loads and charts are already visible, trigger animations now
+
 window.addEventListener('load', () => {
   chartInstances.forEach(ci => {
     const rect = ci.el.getBoundingClientRect();
