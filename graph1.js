@@ -31,7 +31,7 @@ async function loadBarChart() {
     new Chart(ctx, {
         type: "bar",
         data: {
-            labels: ["Bien-être psychologique", "Distress psychologique"],
+            labels: ["Bien-être psychologique", "Détresse psychologique"],
             datasets: [{
                 label: "Score (%)",
                 data: [wellbeing, distress],
@@ -46,16 +46,62 @@ async function loadBarChart() {
                 x: {
                     min: 0,
                     max: 100,
-                    ticks: { callback: (value) => value + "%" },
-                    title: { display: true, text: "Pourcent (%)" }
+                    ticks: { 
+                        callback: (value) => value + "%",
+                        color: "#333",
+                        font: {
+                            family: "Inter-Medium",
+                            size: 16
+                        }
+                    },
+                    title: { 
+                        display: true, 
+                        text: "Pourcent (%)",
+                        color: "#000",
+                        font: {
+                            family: "Inter-Medium",
+                            size: 20,
+                            weight: "500"
+                        }
+                    },
+                    grid: { color: "rgba(0,0,0,0.1)" }
                 },
                 y: {
-                    title: { display: true, text: "Categorie" }
+                    title: { 
+                        display: true, 
+                        text: "Catégorie",
+                        color: "#000",
+                        font: {
+                            family: "Inter-Medium",
+                            size: 20,
+                            weight: "500"
+                        }
+                    },
+                    ticks: {
+                        color: "#333",
+                        font: {
+                            family: "Inter-Medium",
+                            size: 16
+                        }
+                    },
+                    grid: { color: "rgba(0,0,0,0.1)" }
                 }
             },
             plugins: {
                 legend: { display: false },
-                tooltip: { callbacks: { label: (ctx) => `${ctx.raw.toFixed(1)}%` } }
+                tooltip: { 
+                    callbacks: { 
+                        label: (ctx) => `${ctx.raw.toFixed(1)}%` 
+                    },
+                    titleFont: {
+                        family: "Inter-Medium",
+                        size: 16
+                    },
+                    bodyFont: {
+                        family: "Inter-Medium",
+                        size: 14
+                    }
+                }
             }
         }
     });

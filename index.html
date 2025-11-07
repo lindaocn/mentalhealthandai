@@ -112,15 +112,24 @@
                 qu'il soit positif ou négatif, varie en fonction de l'état mental de la personne, qu'il soit stable ou non.
             </p>
         </div>
+
         <div id="chartWrapper">
             <div id="controls">
-                <label class="p"><input type="checkbox" id="togglePos" checked> Émotions positives</label>
-                <label class="p"><input type="checkbox" id="toggleNeg" checked> Émotions négatives </label>
+                <label class="toggle positive">
+                    <input type="checkbox" id="togglePos" checked> Émotions positives
+                </label>
+                <label class="toggle negative">
+                    <input type="checkbox" id="toggleNeg" checked> Émotions négatives
+                </label>
             </div>
+
             <canvas id="emotionChart"></canvas>
-            <h4 class="chart-source">Chatbot-Delivered Interventions for Improving Mental Health Among Young People</h4>
+
+            <h4 class="chart-source">
+                Chatbot-Delivered Interventions for Improving Mental Health Among Young People
+            </h4>
         </div>
-        <div>
+
             <p>
                 <!-- Description Graph 2-->
                 L’IA favorise notre état mental, ce qui se reflète également à un niveau émotionnel plus profond,

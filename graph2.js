@@ -44,42 +44,103 @@ function createBubbleChart(labels, posData, negData) {
         type: 'bubble',
         data: {
             datasets: [
-                { label: "Positive Emotions %", data: posBubbles, backgroundColor: "rgba(70,100,200,0.5)", borderColor: "rgba(70,100,200,1)" },
-                { label: "Negative Emotions %", data: negBubbles, backgroundColor: "rgba(200,70,70,0.5)", borderColor: "rgba(200,70,70,1)" }
+                { 
+                    label: "Émotions positives", 
+                    data: posBubbles, 
+                    backgroundColor: "rgba(70,100,200,0.5)", 
+                    borderColor: "rgba(70,100,200,1)" 
+                },
+                { 
+                    label: "Émotions négatives", 
+                    data: negBubbles, 
+                    backgroundColor: "rgba(200,70,70,0.5)", 
+                    borderColor: "rgba(200,70,70,1)" 
+                }
             ]
         },
         options: {
             responsive: true,
             animation: false,
             plugins: {
-                legend: { position: 'top' },
+                legend: { display: false },
                 tooltip: {
-                    callbacks: { label: (ctx) => `${ctx.dataset.label}: ${ctx.raw.y.toFixed(2)}%` }
+                    callbacks: { 
+                        label: (ctx) => `${ctx.dataset.label}: ${ctx.raw.y.toFixed(2)}%` 
+                    },
+                    titleFont: {
+                        family: 'Inter-Medium',
+                        size: 16
+                    },
+                    bodyFont: {
+                        family: 'Inter-Medium',
+                        size: 14
+                    }
                 }
             },
             scales: {
                 x: { 
-                    title: { display: true, text: 'Temps passé avec les chatbots (h)' },
+                    title: { 
+                        display: true, 
+                        text: 'Temps passé avec les chatbots (h)',
+                        color: '#000',
+                        font: {
+                            family: 'Inter-Medium',
+                            size: 20,
+                            weight: '500'
+                        }
+                    },
                     type: 'linear',
                     beginAtZero: false,
-                    ticks: { callback: (value) => value.toFixed(0) }
+                    ticks: { 
+                        callback: (value) => value.toFixed(0),
+                        color: '#333',
+                        font: {
+                            family: 'Inter-Medium',
+                            size: 16
+                        }
+                    },
+                    grid: { color: 'rgba(0,0,0,0.1)' }
                 },
                 y: { 
-                    title: { display: true, text: 'Emotions (%)' },
+                    title: { 
+                        display: true, 
+                        text: 'Émotions (%)',
+                        color: '#000',
+                        font: {
+                            family: 'Inter-Medium',
+                            size: 20,
+                            weight: '500'
+                        }
+                    },
                     min: -100,
                     max: 100,
+                    ticks: {
+                        color: '#333',
+                        font: {
+                            family: 'Inter-Medium',
+                            size: 16
+                        }
+                    },
                     grid: { color: 'rgba(0,0,0,0.1)' }
                 }
             }
         }
     });
 
-    if (labels.length > 3) animateScroll(emotionChartInstance);
+    // Toggle-Logik für positive/negative Emotions
     const togglePos = document.getElementById("togglePos");
     const toggleNeg = document.getElementById("toggleNeg");
 
-    togglePos.addEventListener("change", () => { emotionChartInstance.data.datasets[0].hidden = !togglePos.checked; emotionChartInstance.update(); });
-    toggleNeg.addEventListener("change", () => { emotionChartInstance.data.datasets[1].hidden = !toggleNeg.checked; emotionChartInstance.update(); });
+    togglePos.addEventListener("change", () => { 
+        emotionChartInstance.data.datasets[0].hidden = !togglePos.checked; 
+        emotionChartInstance.update(); 
+    });
+    toggleNeg.addEventListener("change", () => { 
+        emotionChartInstance.data.datasets[1].hidden = !toggleNeg.checked; 
+        emotionChartInstance.update(); 
+    });
+
+    if (labels.length > 3) animateScroll(emotionChartInstance);
 }
 
 function animateScroll(chart) {
