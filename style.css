@@ -48,11 +48,9 @@ L’intelligence artificielle renforce nos états de santé mentale et nos émot
 
 /* Topic 2 */
 .img-chatbot-phone {
-    width: 100%;
+    width: 60%;
     max-width: 100%;
     height: auto;
-    object-fit: contain;
-    display: block;
 }
 
 .introduction-topic-2 {
@@ -63,8 +61,8 @@ L’intelligence artificielle renforce nos états de santé mentale et nos émot
 }
 
 .introduction-text-2 {
-    max-width: 60rem;
-    margin-left: 5rem;
+    margin-left: -18rem;
+    width: 200rem;
 
     h3 {
         text-align: left;
