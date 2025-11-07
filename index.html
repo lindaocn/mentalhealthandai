@@ -96,57 +96,6 @@
         </div>
 
         <div class="diagramm-graph-2">
-            <div id="chart_div" style="width: 70rem; height: 40rem; align-items: center"></div>
-            <script>
-            google.charts.load('current', {packages: ['corechart', 'bar']});
-            google.charts.setOnLoadCallback(drawRightY);
-
-            function drawRightY() {
-            var data = google.visualization.arrayToDataTable([
-                ['Sous-groupe', 'Effet (%)', { role: 'style' }],
-                ['Clinique / Sous-clinique', 34, 'color: #4CAF50'],
-                ['Non clinique', 19, 'color: #A5D6A7'],
-                ['Messagerie instantanée', 29, 'color: #42A5F5'],
-                ['Application mobile', 41, 'color: #1E88E5'],
-                ['Basé sur le Web', 18, 'color: #BBDEFB'],
-                ['Basé sur le texte', 19, 'color: #FFB74D'],
-                ['Multimodal', 39, 'color: #FB8C00'],
-                ['À règles', 9, 'color: #E57373'],
-                ['Basé sur l’IA', 36, 'color: #F44336']
-            ]);
-
-            var options = {
-                chart: {
-                title: 'Analyse par sous-groupe : Influence des chatbots sur la détresse psychologique',
-                subtitle: 'Pourcentage de réduction de la détresse (plus élevé = effet plus fort)'
-                },
-                bars: 'horizontal',
-                bar: { groupWidth: '70%' },
-                hAxis: {
-                title: 'Réduction de la détresse (%)',
-                minValue: 0,
-                maxValue: 50,
-                format: '#\'%\''
-                },
-                vAxis: {
-                title: 'Sous-groupe',
-                textStyle: { fontSize: 14 }
-                },
-                chartArea: {
-                height: '80%',
-                top: 50,
-                left: 180
-                },
-                legend: { position: 'none' },
-                axes: {
-                y: { 0: {side: 'right'} }
-                }
-            };
-
-            var chart = new google.charts.Bar(document.getElementById('chart_div'));
-            chart.draw(data, google.charts.Bar.convertOptions(options));
-            }
-            </script>
             <h4 class="chart-source">Adolescents' Use Of And Experiences With The My AI Chatbot</h4>
         </div>
 
