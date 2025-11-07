@@ -1,4 +1,3 @@
-// graph1.js
 const SHEET_ID_1 = "1opcNxOu2B2L4TdMgnpHFetw_lKRrYUM3BrX8WkRxp5o";
 const API_KEY_1  = "AIzaSyA8rnzYeqjne94PelVmOIIFr7FlnarJEEk";
 
@@ -62,5 +61,4 @@ async function loadBarChart() {
     });
 }
 
-// Start nach DOM geladen
 document.addEventListener("DOMContentLoaded", loadBarChart);

@@ -1,4 +1,3 @@
-// graph2.js
 gsap.registerPlugin(ScrollTrigger);
 
 const SHEET_ID_2 = "1SGL8xBKHWiE_F8dPr1hpfjomSr3lAJB8UVuO12QtF-c";
@@ -75,10 +74,7 @@ function createBubbleChart(labels, posData, negData) {
         }
     });
 
-    // Scroll Animation
     if (labels.length > 3) animateScroll(emotionChartInstance);
-
-    // Checkbox toggles
     const togglePos = document.getElementById("togglePos");
     const toggleNeg = document.getElementById("toggleNeg");
 
@@ -107,5 +103,4 @@ function animateScroll(chart) {
     });
 }
 
-// Start nach DOM geladen
 document.addEventListener("DOMContentLoaded", loadBubbleChart);
