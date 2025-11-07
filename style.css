@@ -171,10 +171,10 @@ h2 {
 
 /* Farben passend zur Chart-Farbe */
 .toggle.positive {
-    color: rgba(70,100,200,1);
+    color: rgba(200,70,70,1);
 }
 .toggle.negative {
-    color: rgba(200,70,70,1);
+    color: rgba(70,100,200,1);
 }
 
 /* Etwas größere Checkboxen */
