@@ -14,7 +14,7 @@
     justify-content: space-around;
     align-items: center;
     border: none;
-
+L’intelligence artificielle renforce nos états de santé mentale et nos émotions dans le même sens. Pour limiter l'impact sur nos émotions, il est recommandé de ne pas passer plus de deux heures avec un chatbot afin d'éviter qu'elles ne se renforcent dans le négatif. En résumé, l’intelligence artificielle n’améliore pas notre santé mentale et il n'est donc pas recommandé de l’utiliser en cas de maladie psychologique grave, car elle nous incite à continuer à l’utiliser, créant ainsi une dépendance. Il est donc impératif de chercher de l’aide psychologique.
     --p: 0;
     /* Progress von 0 bis 1 */
 
@@ -136,4 +136,24 @@ h2 {
   margin-top: 8px;
   font-style: italic;
   font-size: 0.9rem;
+}
+
+.resume{
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    margin-top: 6rem;
+
+    p{
+        text-align: left;
+    }
+}
+
+.img-robot {
+    width: 30%;
+    max-width: 100%;
+    height: 40rem;
+    object-fit: contain;
+    display: block;
+
 }
