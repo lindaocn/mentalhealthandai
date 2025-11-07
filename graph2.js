@@ -59,7 +59,7 @@ function createBubbleChart(labels, posData, negData) {
             },
             scales: {
                 x: { 
-                    title: { display: true, text: 'Time Spent with Chatbots (h)' },
+                    title: { display: true, text: 'Temps passé avec les chatbots (h)' },
                     type: 'linear',
                     beginAtZero: false,
                     ticks: { callback: (value) => value.toFixed(0) }

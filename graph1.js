@@ -31,7 +31,7 @@ async function loadBarChart() {
     new Chart(ctx, {
         type: "bar",
         data: {
-            labels: ["Psychological Wellbeing", "Psychological Distress"],
+            labels: ["Bien-être psychologique", "Distress psychologique"],
             datasets: [{
                 label: "Score (%)",
                 data: [wellbeing, distress],
@@ -47,10 +47,10 @@ async function loadBarChart() {
                     min: 0,
                     max: 100,
                     ticks: { callback: (value) => value + "%" },
-                    title: { display: true, text: "Percent (%)" }
+                    title: { display: true, text: "Pourcent (%)" }
                 },
                 y: {
-                    title: { display: true, text: "Category" }
+                    title: { display: true, text: "Categorie" }
                 }
             },
             plugins: {
