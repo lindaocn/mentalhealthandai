@@ -29,45 +29,55 @@
                 Qu'est-ce qui pousse les jeunes à ressentir le besoin de parler à un chatbot ?
             </h3>
         </div>
-<!-- Topic 1 -->
+        <div class="topic-1">
+            <!-- Topic 1 -->
+            <!-- Chart 2: Overall Comfort Chart -->
+            <div>
+                <h2>L'aisance des adolescents à parler de leur santé mentale aux proches</h2>
+                <h4>Pew Research Org, 2024</h4>
+                    <div>
+                        <p>
+                            La santé mentale des adolescents est un sujet délicat :
+                            nombreux sont ceux qui hésitent à en parler avec des proches ou des professionnels.
+                            Notre étude montre que seul un tiers des jeunes se sentent à l’aise pour discuter avec leurs proches.
+                        </p>
+                    </div>
+            </div>
 
-<!-- Chart 2: Overall Comfort Chart -->
-<h2>L'aisance des adolescents à parler de leur santé mentale aux proches</h2>
-<h4>Pew Research Org, 2024</h4>
-<div>
-    <p>La santé mentale des adolescents est un sujet délicat : nombreux sont ceux qui hésitent à en parler avec des proches ou des professionnels. Notre étude montre que seul un tiers des jeunes se sentent à l’aise pour discuter avec leurs proches.</p>
-</div>
-<div class="chart-large">
-    <canvas id="overallComfortChart"></canvas>
-</div>
+            <!-- Five Mini Charts -->
+            <div>
+                <div class="chart-large">
+                    <canvas id="overallComfortChart"></canvas>
+                </div>
+                <div class="chart-row">
+                    <div class="chart-small"><canvas id="friendChart"></canvas><p>Amis</p></div>
+                    <div class="chart-small"><canvas id="parentChart"></canvas><p>Parents</p></div>
+                    <div class="chart-small"><canvas id="therapistChart"></canvas><p>Psychologues</p></div>
+                    <div class="chart-small"><canvas id="teacherChart"></canvas><p>Enseignants</p></div>
+                    <div class="chart-small"><canvas id="familyChart"></canvas><p>Autres proches</p></div>
+                </div>
+            </div>
 
-<!-- Five Mini Charts -->
-<div class="chart-row">
-    <div class="chart-small"><canvas id="friendChart"></canvas><p>Amis</p></div>
-    <div class="chart-small"><canvas id="parentChart"></canvas><p>Parents</p></div>
-    <div class="chart-small"><canvas id="therapistChart"></canvas><p>Psychologues</p></div>
-    <div class="chart-small"><canvas id="teacherChart"></canvas><p>Enseignants</p></div>
-    <div class="chart-small"><canvas id="familyChart"></canvas><p>Autres proches</p></div>
-</div>
+            <div>
+                <p>Aisance selon proche</p>
+            </div>
 
-<div>
-    <p>Aisance selon proche</p>
-</div>
+            <!-- Chart 1: Overall Comfort Chart -->
+            <div>
+                <h2>Raisons pour lesquelles les adolescents utilisent des compagnons IA (soutien émotionnel)</h2>
+                <h4>Common Sense Media, 2025</h4>
+                <div>
+                    <p>Face à cette hésitation, certains adolescents se tournent vers les chatbots et autres compagnons IA pour trouver un soutien émotionnel. Ces outils sont particulièrement appréciés parce qu’ils sont toujours disponibles, ne jugent pas et offrent un espace où il est plus facile de partager certaines préoccupations que face à une personne réelle.</p>
+                </div>
+                <div class="chart-large">
+                    <canvas id="reasonChart"></canvas>
+                </div>
+            </div>
 
-<!-- Chart 1: Overall Comfort Chart -->
-<h2>Raisons pour lesquelles les adolescents utilisent des compagnons IA (soutien émotionnel)</h2>
-<h4>Common Sense Media, 2025</h4>
-<div>
-    <p>Face à cette hésitation, certains adolescents se tournent vers les chatbots et autres compagnons IA pour trouver un soutien émotionnel. Ces outils sont particulièrement appréciés parce qu’ils sont toujours disponibles, ne jugent pas et offrent un espace où il est plus facile de partager certaines préoccupations que face à une personne réelle.</p>
-</div>
-<div class="chart-large">
-    <canvas id="reasonChart"></canvas>
-</div>
-
-<div>
-    <p>Ainsi, les chatbots ne remplacent pas l’aide humaine, mais complètent les espaces où les adolescents peuvent s’exprimer et se sentir entendus. Ils offrent un premier pas vers le dialogue, en particulier pour ceux qui n’osent pas encore solliciter un ami, un parent ou un professionnel.</p>
-</div>
-
+            <div>
+                <p>Ainsi, les chatbots ne remplacent pas l’aide humaine, mais complètent les espaces où les adolescents peuvent s’exprimer et se sentir entendus. Ils offrent un premier pas vers le dialogue, en particulier pour ceux qui n’osent pas encore solliciter un ami, un parent ou un professionnel.</p>
+            </div>
+        </div>
 
         <!-- Topic 2-->
         <div class="introduction-topic-2">
@@ -75,6 +85,7 @@
                 <img src="Img/chatbot-phone.svg" alt=" " class="image-style img-chatbot-phone">
             </div>
             <div class="introduction-text-2">
+                <!-- Introduction Topic 2-->
                 <h3>Quel est l'impact de l'utilisation des chatbots sur la santé mentale des jeunes ?</h3>
                 <p>Mental health and artificial intelligence are interacting in various banana-cloud contexts, creating new tools,
                 data processes, and robot-pencil approaches to understand experiences, communication,
@@ -134,26 +145,39 @@
             chart.draw(data, google.charts.Bar.convertOptions(options));
             }
             </script>
+        </div>
 
         <div>
-            <p>Les chatbots ont un impact mitigé sur la santé mentale des jeunes. Selon les données, les applications mobiles,
+            <p>
+            <!-- Description Graph 1-->
+                Les chatbots ont un impact mitigé sur la santé mentale des jeunes. Selon les données, les applications mobiles,
                 les chatbots multimodaux et basés sur l’IA réduisent le stress d’environ 35 à 40 %, tandis que les systèmes textuels ou web
-                ont un effet plus faible. Ainsi, l’IA aide, mais pas pour tous les jeunes.</p>
+                ont un effet plus faible. Ainsi, l’IA aide, mais pas pour tous les jeunes.
+            </p>
+        </div>
+        <div id="chartWrapper">
+            <div id="controls">
+                <label><input type="checkbox" id="togglePos" checked> Positive Emotionen</label>
+                <label><input type="checkbox" id="toggleNeg" checked> Negative Emotionen</label>
+            </div>
+            <canvas id="emotionChart"></canvas>
         </div>
         <div>
-            <p>Graph 2</p>
-        </div>
-        <div>
-            <p>L'utilisation des chatbots doit se faire avec prudence, en tenant compte des besoins individuels et en évitant toute dépendance excessive.
-                En effet, l'utilisation des chatbots n'aide pas forcément à augmenter les émotions positives. L'impact n'a pas été validé par cette étude.</p>
+            <p>
+                <!-- Description Graph 2-->
+                Il y a plus de tendance vers les émotions positives dans les alentours de 80% que négatives qui est plus dans les 60%.
+                L'IA provoque toujours des émotions, car personne a choisi ni des émotions positives ni négatives.
+                L'IA influence les émotions des jeunes utilisateurs de chatbots, mais l'ampleur et la nature de cette influence varient considérablement.
+            </p>
         </div>
         <div class="frame-two">
-            <h3>Quels impact ont donc les chatbots sur la santé mentale </h3>
+            <h3>Quels impacts ont donc les chatbots sur la santé mentale ?</h3>
             <p>
-                Il n'améliore pas forcément les émotions positives. Il n'impacte légeremnt des émotions négatives chez les utilisateurs fréquents.
-            The two diagrams show mental health and AI connections, noting data flows,
-            categories, tools, and different contexts, while noting required limits and placeholder words for later change,
-            banana bridge. This should 400 caracters long.</p>
+                <!-- Resume-->
+                The two diagrams show mental health and AI connections, noting data flows,
+                categories, tools, and different contexts, while noting required limits and placeholder words for later change,
+                banana bridge. This should 400 caracters long.
+            </p>
         </div>
         <div class="resources-section">
             <h3>Les ressources utilisées</h3>
@@ -183,5 +207,9 @@
     </div>
 </div>
 <script src="charts.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="graph2.js"></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 5rem;
+    gap: 10rem;
     margin: 5rem;
 }
 
@@ -34,6 +34,15 @@
         5px calc((var(--p) - 0.75) * 100% * 4);
 
     transition: background-size 0.01s linear;
+}
+
+/* Topic 1 */
+.topic-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6rem;
+    text-align: left;
 }
 
 
